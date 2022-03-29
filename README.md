@@ -7,33 +7,33 @@ Desarrollar un MVP básico para que los empleados puedan realizar sus consultas 
 
 ## Requisitos mínmos:
 
-* Vistas: 
+#### Vistas: 
 - Página 1: Lista de las solicitudes
 - Página 2: Formulario para solicitar el soporte
 - Página 3: Edición de una solicitud​
 
-* Contenido de la solicitud:
+#### Contenido de la solicitud:
 - Nombre del solicitante
 - Fecha de la solicitud
 - Tema de la consulta
 - Descripción de la consulta
 ​
-* Listado de las solicitudes:
+#### Listado de las solicitudes:
 - Deben aparacer por orden de creación
 ​
-* Nueva cita:
+#### Nueva cita:
 - Todos los campos del formulario son obligatorios
 - Botón para resetear los campos
 - Botón para cancelar la creación y volver a la vista de la lista
 - Botón para validar la solicitud
 
-* Edición de una solicitud ya registrada:
+#### Edición de una solicitud ya registrada:
 - Todos los campos del formulario son obligatorios
 - Los campos deberán contener la información actual
 - Botón de cancelar la edición
 - Botón para enviar los cambios realizados
 
-* La aplicación deberá ser totalmente responsive.
+#### La aplicación deberá ser totalmente responsive.
 ​
 
 ## Tecnologías:
