@@ -66,13 +66,13 @@ Un link a un repositorio de github. Link a url del proyecto en producción. Pres
 
 ## Installation
 
->> composer install
+$ composer install
 
 ### Run test
 
->> vendor/bin/phpunit
+$ vendor/bin/phpunit
 or
->> composer testphp
+$ composer testphp
 
 ## By
 Emma Fernández Corte
