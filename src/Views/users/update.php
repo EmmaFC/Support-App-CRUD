@@ -27,17 +27,29 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body>
-        <?php /* require "../components/header.php";  */?>
-        <main>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>        <main>
             <section>
                 <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-                    <input type="text" label="user_name" name="user_name" placeholder="user_name" value="<?php echo $user["user_name"] ?>" required/>
-                    <input type="text" label="user_email" name="user_email" placeholder="user_email" value="<?php echo $user["user_email"] ?>" required/>
-                    <input type="password" label="user_password" name="user_password" placeholder="user_password" value="<?php echo $user["user_password"] ?>" required/>
+                    <input type="text" label="user_name" name="user_name" placeholder="Nombre" value="<?php echo $user["user_name"] ?>" required/>
+                    <input type="text" label="user_email" name="user_email" placeholder="Email" value="<?php echo $user["user_email"] ?>" required/>
+                    <input type="password" label="user_password" name="user_password" placeholder="Contraseña" value="<?php echo $user["user_password"] ?>" required/>
                     <input type="hidden" name="user_id" value="<?php echo $user["user_id"] ?>" required/>
+
+                    <a class="btn" href="index.php">Cancelar</a>
+                    <a class="btn" href="http://localhost/support-app-crud/src/views/users/update.php">Reset</a>
                     <button type="submit" label="submit" name="submit">Submit</button>
-                    <button type="submit" label="cancel_user" name="cancel_user">Cancel</button>
-                    <button type="submit" label="reset_user" name="reset_user">Reset</button>
                 </form>
             </section>
         </main>

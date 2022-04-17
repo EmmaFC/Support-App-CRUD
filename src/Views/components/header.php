@@ -1,7 +1,9 @@
 <header id="header">
     <div id="header-container">
         <div id="logo_container" class="">
-            <h3>Request Center</h3>
+            <a class="btn" href="http://localhost/crud-app-php/index.php">
+                <h3>Request Center</h3>
+            </a>
             <!-- <img src="" alt="logotipo"> -->
         </div>
         <nav id="nav_menu">

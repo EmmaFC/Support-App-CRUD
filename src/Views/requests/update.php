@@ -26,18 +26,30 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body>
-    <?php require "../components/header.php"; ?>
-        <main>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>        <main>
             <section>
                 <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-                    <input type="text" label="request_title" name="request_title" placeholder="title" value="<?php echo $request["request_title"] ?>" required/>
-                    <input type="text" label="request_topic" name="request_topic" placeholder="topic" value="<?php echo $request["request_topic"] ?>" required/>
-                    <input type="text" label="request_author" name="request_author" placeholder="name" value="<?php echo $request["request_author"] ?>" required/>
-                    <input type="textarea" label="request_description" name="request_description" placeholder="description" value="<?php echo $request["request_description"] ?>" required/>
+                    <input type="text" label="request_title" name="request_title" placeholder="Título de solicitud"  value="<?php echo $request["request_title"] ?>" required/>
+                    <input type="text" label="request_topic" name="request_topic" placeholder="Tema" value="<?php echo $request["request_topic"] ?>" required/>
+                    <input type="text" label="request_author" name="request_author" placeholder="Autor" value="<?php echo $request["request_author"] ?>" required/>
+                    <input type="textarea" label="request_description" name="request_description" placeholder="Descripción" value="<?php echo $request["request_description"] ?>" required/>
                     <input type="hidden" name="update_id" value="<?php echo $request["request_description"] ?>" required/>
+
+                    <a class="btn" href="index.php">Cancelar</a>
+                    <a class="btn" href="http://localhost/crud-app-php/src/views/requests/update.php">Reset</a>
                     <button type="submit" label="submit_request" name="submit_request">Submit</button>
-                    <button type="submit" label="cancel_request" name="cancel_request">Cancel</button>
-                    <button type="submit" label="reset_request" name="reset_request">Reset</button>
                 </form>
             </section>
         </main>

@@ -1,46 +1,56 @@
 <?php
 
-namespace App\Controllers\RequestController;
-
-use App\Models\Request;
-use App\config\Database;
+require ("../../../app/Models/Request.php");
 
 class RequestController {
     
-    public function __construct(){
-        //
-     }
+    public $request;
  
-     public function index () {
- 
-         
-     }
-     public function show () {
- 
-         
-     }
+    public function __construct($request){
+        $this->request = $request;
+    }
+
+    public function index () {
+
+        $requests = $this->request->getAllrequests();
+        return $requests;
+        
+    }
+
+    public function show ($id) {
+
+        $request = $this->request->loadrequest($id);
+        return $request;
+    }
+   
+    public function create () {
+
+    }
+
+    public function store ($title, $topic, $description, $author) {
+
+        $this->request->store($title, $topic, $description, $author);      
+        
+    }
     
-     public function create () {
- 
- 
-     }
-     public function store () {
- 
+    public function edit ($id) {
+        
+        $request =  $this->request->store($id);      
+        return $request;
+    }
+
+    public function update ($id, $title, $topic, $description, $author) {
+    
+        $request = $this->request->update($id, $title, $topic, $description, $author);      
+        return $request;
+    }
+
+    public function delete ($id) {
+
+        $this->request->destroy($id);      
          
-     }
-     public function edit () {
- 
-         
-     }
- 
-     public function update () {
- 
-         
-     }
- 
-     public function destroy () {
- 
-         
-     }
+    }
 
 }
+
+$request_controller = new RequestController($request);

@@ -31,10 +31,8 @@ class UserController {
    
     public function create () {
 
-        
-
-
     }
+
     public function store ($name, $email, $password) {
 
         $this->user->store($name, $email, $password);      

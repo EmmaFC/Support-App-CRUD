@@ -22,15 +22,35 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body>
-        <?php require "../components/header.php"; ?>
-        <main>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>        <main>
             <section>
-                <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-                    <input type="text" label="role_name" name="role_name" placeholder="role_name" value="" required/>
-                    <button type="submit" label="submit_request" name="submit_request">Submit</button>
-                    <button type="submit" label="cancel_request" name="cancel_request">Cancel</button>
-                    <button type="submit" label="reset_request" name="reset_request">Reset</button>
-                </form>
+                <div class="card">
+                    <div class="card-title">
+                        <h1 class="mb-sm">Crear rol</h1>
+                    </div>
+                    <div class="card-body">
+                        <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                            <input type="text" label="role_name" name="role_name" placeholder="Nombre de rol" value="" required/>
+                            <div class="button-section">
+                                <a class="btn" href="index.php">Cancelar</a>
+                                <a class="btn" href="http://localhost/crud-app-php/src/views/roles/create.php">Reset</a>
+                                <button type="submit" label="submit_request" name="submit_request">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </section>
         </main>
         <?php require "../components/footer.php"; ?>

@@ -11,16 +11,38 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body>
-        <?php require "../components/header.php"; ?>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>   
         <main>
-            <section>
-                <a href="create.php?>">Crear Rol</a>
-                <?php foreach($roles as $role): ?>
-                    <div class="user-card">
-                        <h3><?php echo $role["role_name"] ?></h3>
-                    </div>
-                <?php endforeach; ?>
+             <section>
+                <div class="container-buttons">
+                    <a href="http://localhost/crud-app-php/src/views/dashboard.php"><h3>Volver al dashboard</h3></a>
+                    <a class="btn" href="create.php?>">Crear Rol</a>
+                </div>
             </section>
+            <section>
+                <?php if (!empty($roles)){ foreach($roles as $role) { ?>
+                    <div class="user-card">
+                        <div class="user-card-title">
+                            <div class="user-card">
+                                <h3>Rol : <?php echo $role["role_name"] ?></h3>
+                            </div>
+                        </div>
+                    </div>
+                <?php  }} else { echo 'Actualmente no existe ningún rol';}?>
+            </section>
+            
         </main>
         <?php require "../components/footer.php"; ?>
     </body>

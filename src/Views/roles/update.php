@@ -24,15 +24,27 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body>
-        <?php require "../components/header.php"; ?>
-        <main>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>        <main>
             <section>
                 <form action="<?php echo $_SERVER["PHP_SELF"]?>" method="POST">
-                    <input type="text" label="role_name" name="role_name" placeholder="role_name" value="<?php echo $role["role_name"] ?>" required/>
+                    <input type="text" label="role_name" name="role_name" placeholder="Nombre de rol" value="<?php echo $role["role_name"] ?>" required/>
                     <input type="hidden" name="role_id" value="<?php echo $role["role_id"] ?>" required/>
+
+                    <a class="btn" href="index.php">Cancelar</a>
+                    <a class="btn" href="http://localhost/crud-app-php/src/views/roles/update.php">Reset</a>
                     <button type="submit" label="submit_role" name="submit_role">Submit</button>
-                    <button type="submit" label="cancel_role" name="cancel_role">Cancel</button>
-                    <button type="submit" label="reset_role" name="reset_role">Reset</button>
                 </form>
             </section>
         </main>

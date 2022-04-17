@@ -32,8 +32,19 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body>
-        <?php require "../components/header.php"; ?>
-        <main>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>        <main>
             <section>
                 <div class="container">
                     <h1><?php echo $request["request_title"] ?></h1>
@@ -41,12 +52,14 @@
                     <p><?php echo $request["request_description"]?>...</p>
                     <p>Creado por : <?php echo $request["request_author"] ?> el <?php echo $request["created_at"] ?></p>
                 </div>
-                <a href="update.php?id=<?php echo $request["request_id"] ?>">Editar Request</a>
-                <form action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                    <input type="hidden" name="delete" value="<?php echo $request["request_id"] ?>">
-                    <input type="submit" name="delete" value="Eliminar">
-                </form>
-                <a href="index.php">Volver</a>
+                <div class="container-buttons">
+                    <a class="btn" href="update.php?id=<?php echo $request["request_id"] ?>">Editar Request</a>
+                    <form action="<?php echo $_SERVER["PHP_SELF"] ?>">
+                        <input type="hidden" name="delete" value="<?php echo $request["request_id"] ?>">
+                        <input class="btn" type="submit" name="delete" value="Eliminar">
+                    </form>
+                    <a class="btn" href="index.php">Volver</a>
+                </div>
             </section>
         </main>
         <?php require "../components/footer.php"; ?>

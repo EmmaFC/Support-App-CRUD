@@ -32,20 +32,31 @@
 <html lang="en">
     <?php require "../components/head.php"; ?>
     <body><!--  -->
-        <?php /* require "../components/header.php"; */ ?>
-        <main>
+    <header id="header">
+            <div id="header-container">
+                <div id="logo_container">
+                <a href="http://localhost/crud-app-php">
+                        <h3>Request Center</h3>
+                    </a>
+                </div>
+                <nav id="nav_menu">
+                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
+                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                </nav>
+            </div>    
+        </header>        <main>
             <section>
                 <div class="container">
                     <h1>Nombre : <?php echo $user["user_name"] ?></h1>
                     <p>Email : <?php echo $user["user_email"] ?></p>
                     <p>Contraseña : <?php echo $user["user_password"]?></p>
                 </div>
-                <a href="update.php?id=<?php echo $user["user_id"]?>">Editar Usuario</a>
+                <a class="btn"  href="update.php?id=<?php echo $user["user_id"]?>">Editar Usuario</a>
                 <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
                     <input type="hidden" name="user_id" value="<?php echo $user["user_id"]?>">
-                    <input type="submit" name="delete" value="Eliminar">
+                    <input class="btn" type="submit" name="delete" value="Eliminar">
                 </form>
-                <a href="index.php">Volver</a>
+                <a class="btn" href="index.php">Volver</a>
             </section>
         </main>
         <?php require "../components/footer.php"; ?>
