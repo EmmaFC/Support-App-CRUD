@@ -17,9 +17,14 @@ class Player{
 
 
     public function move($move_name){  
-       $new_player_move = new $move_name ($move_name);
-       $this->player_move = $new_player_move->move_type;
-       return $this->player_move;
+
+        switch($move_name) {
+            case "Rock" : $this->player_move = new Rock(); break;
+            case "Paper" : $this->player_move = new Paper(); break;
+            case "Scissors" : $this->player_move = new Scissors(); break;
+        }
+        return $this->player_move;
+
     }
 
 
@@ -65,9 +70,9 @@ class Player{
     }
 
     public function store(){
-        
+        $player_move = $this->player_move->move_type;
         $conn = mysqli_connect("localhost", "root", "", "game-app-php") or die("Connection failed");
-        $query = "INSERT into " . $this->db_table . " (player_name, player_move) VALUES ('$this->player_name','$this->player_move')";
+        $query = "INSERT into " . $this->db_table . " (player_name, player_move) VALUES ('$this->player_name','$player_move')";
 
         echo mysqli_query($conn, $query)? "Record inserted" : "Failed to insert record";
         mysqli_close($conn);

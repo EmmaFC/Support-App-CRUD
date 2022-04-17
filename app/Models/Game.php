@@ -16,7 +16,6 @@ class Game{
 
     public function __construct($game_player){
         $this->game_player = $game_player;
-        $this->game_player_move = $game_player->player_move;
     }
 
     public function setBotMove(){
@@ -25,7 +24,7 @@ class Game{
             $random_choice = rand(1, 3);
             switch ($random_choice) {
                 case 1: $this->game_bot_move = 'Rock'; break;
-                case 2: $this->game_bot_move = 'Ppaper'; break;
+                case 2: $this->game_bot_move = 'Paper'; break;
                 case 3: $this->game_bot_move = 'Scissors'; break;
             }
                 return $this->game_bot_move;
@@ -36,9 +35,9 @@ class Game{
        
         if (isset($this->game_bot_move)) {
             switch ($this->game_bot_move) {
-                case $this->game_player->move->move_type->wins: $this->game_result = 'You Won!'; break;
-                case $this->game_player->move->move_type->draws: $this->game_result = 'draws'; break;
-                case $this->game_player->move->move_type->looses: $this->game_result = 'Game Over'; break;
+                case $this->game_player_move->wins(): $this->game_result = 'You Won!'; break;
+                case $this->game_player_move->draws(): $this->game_result = 'draws'; break;
+                case $this->game_player_move->looses(): $this->game_result = 'Game Over'; break;
             }
                 return $this->game_result;
         }
@@ -60,9 +59,10 @@ class Game{
     }
 
     public function store(){
-        
+        $player_move = $this->game_player_move->move_type;
+        $player_name = $this->game_player->player_name;
         $conn = mysqli_connect("localhost", "root", "", "game-app-php") or die("Connection failed");
-        $query = "INSERT into " . $this->db_table . " (game_player, game_score, game_result, game_player_move, game_bot_move) VALUES ('$this->game_player', '$this->game_score', ''$this->game_result',$this->game_player_move', '$this->game_bot_move')";
+        $query = "INSERT into " . $this->db_table . " (game_player, game_score, game_result, game_player_move, game_bot_move) VALUES ('$player_name', '$this->game_score', '$this->game_result', '$player_move', '$this->game_bot_move')";
         echo mysqli_query($conn, $query)? "Record inserted" : "Failed to insert record";
         mysqli_close($conn);
     }

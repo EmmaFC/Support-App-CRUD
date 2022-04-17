@@ -18,8 +18,8 @@
        else{ alert("Could not"); }
         // Header("Location: " }. $root . "/app/Controllers/UserController.php?");
 
-        $root = $db_connection->redirect();
-        header("Location: " . $root ."/src/views/games/show.php?id=". $id);
+        // $root = $db_connection->redirect();
+        // header("Location: " . $root ."/src/views/games/show.php?id=". $id);
         
     }
 ?>

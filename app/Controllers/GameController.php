@@ -36,8 +36,9 @@ class GameController {
    
     public function create ($new_player) {
 
-        $new_game = new Game($new_player, $new_player->player_move);
-        if (isset($this->game_player_move)) {
+        $new_game = new Game($new_player);
+        $new_game->game_player_move = $new_player->player_move;
+        if (isset($new_game->game_player_move)) {
             $new_game->setBotMove();
             $new_game->checkGameResult();
             $new_game->checkScore();
