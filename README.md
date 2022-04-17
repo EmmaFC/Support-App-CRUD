@@ -61,16 +61,6 @@ Demo del producto. Presentación oral de cada miembro del equipo así como prese
 ## Entregables
 Un link a un repositorio de github. Link a url del proyecto en producción. Presentación en diapositivas + Link. Demo y code review.
 
-## Installation
-
-$ composer install
-
-### Run test
-
-$ vendor/bin/phpunit
-or
-$ composer testphp
-
-## By
+## Creado por
 Emma Fernández Corte
 
