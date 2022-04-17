@@ -1,7 +1,5 @@
 <?php
 
-// require_once ("../../../app/config/db.php");
-// namespace App\Models\User;
 
 class User{
 
@@ -12,11 +10,6 @@ class User{
     public $user_email;
     public $user_password;
 
- /*    public function __construct($db_connection){
-        $this->conn = $db_connection;
-
-    }
- */
 
     public function getAllUsers(){
         
@@ -40,8 +33,6 @@ class User{
         $result = mysqli_query($conn, $query);
         $verified_user = mysqli_fetch_assoc($result);
         
-        // mysqli_free_result($result);
-        // mysqli_close($conn);
         return $verified_user;
     }
 
@@ -54,8 +45,6 @@ class User{
         $result = mysqli_query($conn, $query);
         $user = mysqli_fetch_assoc($result);
 
-        // mysqli_free_result($result);
-        // mysqli_close($conn);
         return $user;
     }
 
@@ -91,4 +80,4 @@ class User{
 
 }
 
-$user = new User(/* $db_connection */);
+$user = new User();

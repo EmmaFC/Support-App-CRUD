@@ -16,7 +16,6 @@ $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Conn
         $new_user = $user_controller->verify($email, $password);
         $root = $db_connection->redirect();
         $user = isset($verified_user) ? header("Location: " . $root ."/src/views/home.php") : header("Location: " . $root ."/src/views/auth/register.php");
-
     }
 
 ?>
@@ -29,7 +28,7 @@ $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Conn
     <header id="header">
             <div id="header-container">
                 <div id="logo_container">
-                    <a href="http://localhost/game-app-php">
+                    <a href="http://localhost/crud-app-php">
                         <h3>Request Center</h3>
                     </a>
                 </div>

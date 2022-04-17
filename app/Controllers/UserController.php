@@ -28,7 +28,6 @@ class UserController {
         $user = $this->user->loadUser($id);
         return $user;
     }
-   
 
     public function verify ($email, $password) {
 

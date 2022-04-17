@@ -9,16 +9,10 @@
         $email = $_POST['user_email'];
         $password = $_POST['user_password'];
 
-        // echo empty($name) ? $name : 'name is empty';
-        // echo empty($email) ? $name : 'email is empty';
-        // echo empty($password) ? $name : 'password is empty';
-
         $new_user = $user_controller->store($name, $email, $password);
-        // Header("Location: " . $root . "/app/Controllers/UserController.php?");
     }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +21,7 @@
     <header id="header">
             <div id="header-container">
                 <div id="logo_container">
-                    <a href="http://localhost/game-app-php">
+                    <a href="http://localhost/crud-app-php">
                         <h3>Request Center</h3>
                     </a>
                 </div>
