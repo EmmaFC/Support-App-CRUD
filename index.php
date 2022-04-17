@@ -11,19 +11,18 @@
     <header id="header">
         <div id="header-container">
             <div id="logo_container" class="">
-                <h1>Bienvenido a Request Center</h1>
+                <h1>Game</h1>
                 <!-- <img src="" alt="logotipo"> -->
             </div>
             <nav id="nav_menu">
-                <a class="btn" href="http://localhost/crud-app-php/src/views/auth/login.php">Login</a>
-                <a class="btn" href="http://localhost/crud-app-php/src/views/auth/register.php">Register</a>
-                <a class="btn" href="http://localhost/crud-app-php/src/views/home.php">Home</a>
-                <a class="btn" href="http://localhost/crud-app-php/src/views/dashboard.php">Dashboard</a>
+                <a class="btn" href="http://localhost/game-app-php/src/views/auth/login.php">Login</a>
+                <a class="btn" href="http://localhost/game-app-php/src/views/auth/register.php">Register</a>
+                <a class="btn" href="http://localhost/game-app-php/src/views/games/create.php">New Game</a>
             </nav>
         </div>    
     </header>
         <main>
-            <section id="container" class="container">
+            <section>
                
             </section>
         </main>

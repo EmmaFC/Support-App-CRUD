@@ -30,13 +30,13 @@
     <header id="header">
             <div id="header-container">
                 <div id="logo_container">
-                <a href="http://localhost/crud-app-php">
+                    <a href="http://localhost/game-app-php">
                         <h3>Request Center</h3>
                     </a>
                 </div>
                 <nav id="nav_menu">
                     <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
-                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                    <a class="btn" href="http://localhost/game-app-php">Logout</a>
                 </nav>
             </div>    
         </header>        <main>

@@ -28,13 +28,13 @@
     <header id="header">
             <div id="header-container">
                 <div id="logo_container">
-                <a href="http://localhost/crud-app-php">
+                <a href="http://localhost/game-app-php">
                         <h3>Request Center</h3>
                     </a>
                 </div>
                 <nav id="nav_menu">
                     <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
-                    <a class="btn" href="http://localhost/crud-app-php">Logout</a>
+                    <a class="btn" href="http://localhost/game-app-php">Logout</a>
                 </nav>
             </div>    
         </header>
@@ -42,7 +42,7 @@
             <section>
                 <div class="card">
                     <div class="card-title">
-                        <h1 class="mb-sm">Crear rol</h1>
+                        <h1 class="mb-sm">Crear usuario</h1>
                     </div>
                     <div class="card-body">
                         <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
@@ -51,7 +51,7 @@
                             <input type="password" label="user_password" name="user_password" placeholder="Contraseña" value="" required/>
                             <div class="button-section">
                                 <a class="btn" href="index.php">Cancelar</a>
-                                <a class="btn" href="http://localhost/crud-app-php/src/views/users/create.php">Reset</a>
+                                <a class="btn" href="http://localhost/game-app-php/src/views/users/create.php">Reset</a>
                                 <button type="submit" label="submit_request" name="submit_request">Submit</button>
                             </div>
                         </form>

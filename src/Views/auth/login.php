@@ -9,34 +9,14 @@ $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Conn
 
 
     if (isset($_POST["submit"])) {
-        $user_email = mysqli_real_escape_string($conn, $_POST["user_email"]);
-        $user_password = mysqli_real_escape_string($conn, $_POST["user_password"]);
-       
-        $query = "SELECT * FROM users WHERE user_email=".$user_email;
+        $db_connection->getConnection();
+        $email = mysqli_real_escape_string($conn, $_POST["user_email"]);
+        $password = mysqli_real_escape_string($conn, $_POST["user_password"]);
 
-        $result = mysqli_query($conn, $query);
-        $user = mysqli_fetch_assoc($result);
-       
-        
-        if (mysqli_query($conn, $query)) 
-        {
-            if($user->email == $user_email && $user->password == $user_password){
-    
-                // get user_id and redirect to home
-                $id = mysqli_real_escape_string($conn,$_GET["id"]);
-                header("Location: " . $path ."/home.php?id=". $id);
-                mysqli_query($conn, $query);
-                
-            }    
-            
-            else {
-                echo "LOGIN ERROR: ".mysqli_error();
-            }
-        } 
-        else 
-        {
-            echo "ERROR: ".mysqli_error();
-        }
+        $new_user = $user_controller->verify($email, $password);
+        $root = $db_connection->redirect();
+        $user = isset($verified_user) ? header("Location: " . $root ."/src/views/home.php") : header("Location: " . $root ."/src/views/auth/register.php");
+
     }
 
 ?>
@@ -49,7 +29,7 @@ $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Conn
     <header id="header">
             <div id="header-container">
                 <div id="logo_container">
-                    <a href="http://localhost/crud-app-php">
+                    <a href="http://localhost/game-app-php">
                         <h3>Request Center</h3>
                     </a>
                 </div>
@@ -66,9 +46,9 @@ $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Conn
                             <input type="text" label="user_email" name="user_email" placeholder="email" value="" required/>
                             <input type="password" label="user_password" name="user_password" placeholder="contraseña" value="" required/>
                             <div class="button-section">
-                                <a class="btn" href="http://localhost/crud-app-php/">Cancel</a>
+                                <a class="btn" href="http://localhost/crud-app-php">Cancel</a>
                                 <a class="btn" href="http://localhost/crud-app-php/src/views/auth/login.php">Reset</a>
-                                <button type="submit" label="submit" name="submit">Loguin</button>
+                                <button type="submit" label="submit" name="submit">Login</button>
                             </div>
                         </form>
                     </div>
