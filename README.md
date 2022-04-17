@@ -2,8 +2,10 @@
 
 
 ## Contexto del proyecto
-Desarrollar un MVP básico para que los empleados puedan realizar sus consultas y esas queden registradas en una base de datos MySQL. El software útilizará el patrón MVC (Model, View, Controler) y será una aplicación orientada a objetos.
-
+Desarrollar un MVP básico para que los empleados puedan realizar 
+sus consultas y esas queden registradas en una base de datos MySQL. 
+El software útilizará el patrón MVC (Model, View, Controler) 
+y será una aplicación orientada a objetos.
 
 ## Requisitos mínmos:
 
@@ -42,11 +44,9 @@ Desarrollar un MVP básico para que los empleados puedan realizar sus consultas 
 - Backend: PHP.
 - Bases de datos: MySQL
 - No se pueden usar otras librerias o frameworks que los espicificados.
-​
 
 ## Modalidades pedagógicas
 Desarrollo en equipo Scrum. 1 Sprint de 2 semanas
-
 
 ## Criterios de rendimiento
 - La aplicación será de tipo CRUD (create, read, update and delete)
@@ -55,14 +55,11 @@ Desarrollo en equipo Scrum. 1 Sprint de 2 semanas
 - La aplicación debe estar acompañada de sus diagramas UML
 - Tests unitarios con PhpUnit.
 
-
 ## Modalidades de evaluación
 Demo del producto. Presentación oral de cada miembro del equipo así como presentación con diapositivas del flujo de trabajo. Code review.
 
-
 ## Entregables
 Un link a un repositorio de github. Link a url del proyecto en producción. Presentación en diapositivas + Link. Demo y code review.
-
 
 ## Installation
 
