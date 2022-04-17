@@ -31,11 +31,25 @@ class User{
         return $users;
     }
 
+    public function verifyUser($email){
+        
+        $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Connection failed");
+        $query = "SELECT * FROM " . $this->db_table . " WHERE user_email=" . $email . "";
+        echo mysqli_query($conn, $query)? "Record verified" : "Failed to verify record";
+
+        $result = mysqli_query($conn, $query);
+        $verified_user = mysqli_fetch_assoc($result);
+        
+        // mysqli_free_result($result);
+        // mysqli_close($conn);
+        return $verified_user;
+    }
+
     public function loadUser($id){
 
         $conn = mysqli_connect("localhost", "root", "", "support-crud-app") or die("Connection failed");
         $query = "SELECT * FROM " . $this->db_table . " WHERE user_id=" . $id . "";
-        echo mysqli_query($conn, $query)? "Record showm" : "Failed to show record";
+        echo mysqli_query($conn, $query)? "Record shown" : "Failed to show record";
         
         $result = mysqli_query($conn, $query);
         $user = mysqli_fetch_assoc($result);

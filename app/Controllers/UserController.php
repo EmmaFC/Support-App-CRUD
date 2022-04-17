@@ -29,6 +29,19 @@ class UserController {
         return $user;
     }
    
+
+    public function verify ($email, $password) {
+
+        $verified_user = $this->user->verifyUser($email)();
+        if($email == $verified_user->user_email && $password == $verified_user->user_password){
+            return $verified_user;
+        }
+        else {
+            return 'Este usuario no está registrado';
+        }
+        
+    }
+
     public function create () {
 
     }

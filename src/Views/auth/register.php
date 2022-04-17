@@ -1,31 +1,24 @@
 <?php
+ 
+    require "../../../app/config/db.php";
+    require "../../../app/Controllers/UserController.php";
 
-require "../../../app/config/db.php";
-require "../../../app/Controllers/UserController.php";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $db_connection->getConnection();
+        $name = $_POST['user_name'];
+        $email = $_POST['user_email'];
+        $password = $_POST['user_password'];
 
-    if (isset($_POST["submit"])) {
-        $username = $_POST["username"];
-        $user_email = $_POST["user_email"];
-        $user_password = $_POST["user_password"];
-        // $username = mysqli_real_escape_string($conn, $_POST["username"]);
-        // $user_email = mysqli_real_escape_string($conn, $_POST["user_email"]);
-        // $user_password = mysqli_real_escape_string($conn, $_POST["user_password"]);
-       
-        $query = "INSERT INTO users (username, user_email, user_password) VALUES ('$user_name','$user_email','$user_password')";
-    
-        if (mysqli_query($conn, $query)) 
-        {
-            header("Location: " . $path ."/home.php");
-            mysqli_query($conn, $query);
-        } 
+        // echo empty($name) ? $name : 'name is empty';
+        // echo empty($email) ? $name : 'email is empty';
+        // echo empty($password) ? $name : 'password is empty';
 
-        else 
-        {
-            echo "ERROR: ".mysqli_error();
-        }
+        $new_user = $user_controller->store($name, $email, $password);
+        // Header("Location: " . $root . "/app/Controllers/UserController.php?");
     }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,13 +41,13 @@ require "../../../app/Controllers/UserController.php";
                     </div>
                     <div class="card-body">
                         <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-                            <input type="text" label="user_name" name="user_name" placeholder="nombre" value="" required/>
-                            <input type="text" label="user_email" name="user_email" placeholder="email" value="" required/>
-                            <input type="password" label="user_password" name="user_password" placeholder="contraseña" value="" required/>    
+                            <input type="text" label="user_name" name="user_name" placeholder="Nombre" value="" required/>
+                            <input type="text" label="user_email" name="user_email" placeholder="Email" value="" required/>
+                            <input type="password" label="user_password" name="user_password" placeholder="Contraseña" value="" required/>
                             <div class="button-section">
-                                <a class="btn" href="http://localhost/crud-app-php/">Cancel</a>
-                                <a class="btn" href="http://localhost/crud-app-php/src/views/auth/register.php">Reset</a>
-                                <button type="submit" label="submit_request" name="submit_request">Registrarse</button>
+                                <a class="btn" href="http://localhost/crud-app-php">Cancelar</a>
+                                <a class="btn" href="http://localhost/crud-app-php/src/views/users/create.php">Reset</a>
+                                <button type="submit" label="submit_request" name="submit_request">Submit</button>
                             </div>
                         </form>
                     </div>

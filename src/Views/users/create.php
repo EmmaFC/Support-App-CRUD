@@ -42,7 +42,7 @@
             <section>
                 <div class="card">
                     <div class="card-title">
-                        <h1 class="mb-sm">Crear rol</h1>
+                        <h1 class="mb-sm">Crear usuario</h1>
                     </div>
                     <div class="card-body">
                         <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
