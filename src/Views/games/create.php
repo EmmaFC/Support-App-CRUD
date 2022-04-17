@@ -14,12 +14,16 @@
         $new_player = $game_controller->savePlayer($game_player, $game_player_move);
         if (isset($new_player)) {
             $new_game = $game_controller->create($new_player);
+           
+                $root = $db_connection->redirect();
+                header("Location: " .$root."/src/views/games/show.php?id=". 2);
         }
-       else{ alert("Could not"); }
+
+
+       else{ echo "Could not save the new game"; }
+       
         // Header("Location: " }. $root . "/app/Controllers/UserController.php?");
 
-        // $root = $db_connection->redirect();
-        // header("Location: " . $root ."/src/views/games/show.php?id=". $id);
         
     }
 ?>
@@ -39,34 +43,35 @@
             <div id="header-container">
                 <div id="logo_container">
                     <a href="http://localhost/game-app-php">
-                        <h3>Game</h3>
+                        <h1 class="dark-text">New Game</h1>
                     </a>
                 </div>
-                <nav id="nav_menu">
-                    <a class="btn" href="http://localhost/game-app-php">Volver</a>
-                </nav>
             </div>    
         </header>            
             <main>
                 <section>
-                    <div class="card">
-                        <div class="card-title">
-                            <h1 class="mb-sm">Choose Your Next Moove</h1>
-                        </div>
-                        <div class="card-body">
-                            <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-                                <input type="text" label="game_player" name="game_player" placeholder="Player Name" value="" required/>      
-
-                                <select name="game_player_move" id="game_player_move">
-                                    <option name="game_player_move" placeholder="Paper" value="Paper" required>Paper</option>
-                                    <option name="game_player_move" placeholder="Rock" value="Rock" required>Rock</option>
-                                    <option name="game_player_move" placeholder="Scissors" value="Scissors" required>Scissors</option>
-                                </select>
-                                <div class="button-section">
-                                    <a class="btn" href="index.php">Cancel</a>
-                                    <button type="submit" label="submit" name="submit">Submit</button>
+                    <div class="img-container">
+                        <div class="card">
+                            <div class="button-section-v">
+                                <div class="card-title">
+                                    <h1 class="mb-sm">Let's Play!</h1>
                                 </div>
-                            </form>
+                                <div class="card-body">
+                                    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+                                        <input class="input" type="text" label="game_player" name="game_player" placeholder="Player Name" value="" required/>      
+                                        <label class="input" for="game_player_move" name="game_player_move">Choose Your Next Moove</label>
+                                        <select  class="input" name="game_player_move" id="game_player_move" placeholder="Choose Your Next Moove">
+                                            <option class="input" name="game_player_move" placeholder="Paper" value="Paper" required>Paper</option>
+                                            <option class="input" name="game_player_move" placeholder="Rock" value="Rock" required>Rock</option>
+                                            <option class="input" name="game_player_move" placeholder="Scissors" value="Scissors" required>Scissors</option>
+                                        </select>
+                                        <div class="button-section">
+                                            <button type="submit" label="submit" name="submit"><a href="index.php">Cancel</a></button>
+                                            <button type="submit" label="submit" name="submit"><a>Submit</a></button>          
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

@@ -14,7 +14,11 @@ class Game{
     public $game_score;
     public $game_result;
 
-    public function __construct($game_player){
+    public function __construct(/* $game_player */){
+        // $this->game_player = $game_player;
+    }
+
+    public function setGamePlayer ($game_player){
         $this->game_player = $game_player;
     }
 
@@ -67,7 +71,20 @@ class Game{
         mysqli_close($conn);
     }
     
+    public function loadGame($id){
+
+        $conn = mysqli_connect("localhost", "root", "", "game-app-php") or die("Connection failed");
+        $query = "SELECT * FROM " . $this->db_table . " WHERE game_id=" . $id . "";
+        echo mysqli_query($conn, $query)? "Record shown" : "Failed to show record";
+        
+        $result = mysqli_query($conn, $query);
+        $game = mysqli_fetch_assoc($result);
+
+        // mysqli_free_result($result);
+        // mysqli_close($conn);
+        return $game;
+    }
 }
 
 
-/* $new_game = new Game($game_player); */
+$game = new Game();

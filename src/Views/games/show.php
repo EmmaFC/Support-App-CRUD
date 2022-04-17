@@ -1,29 +1,12 @@
 <?php
 
     require "../../../app/config/db.php";
-    require "../../../app/Controllers/RequestController.php";
+    require "../../../app/Controllers/GameController.php";
     
     $conn = mysqli_connect("localhost", "root", "", "game-app-php") or die("Connection failed");
     
-    
-    if (isset($_POST["delete"])) 
-    {
-        $conn = mysqli_connect("localhost", "root", "", "game-app-php") or die("Connection failed");
-        $id = mysqli_real_escape_string($conn, $_POST["request_id"]);
-        
-        /*       
-        $name = mysqli_real_escape_string($conn, $_POST["request_name"]);
-        $email = mysqli_real_escape_string($conn, $_POST["request_email"]);
-        $password = mysqli_real_escape_string($conn, $_POST["request_password"]); */
-        
-        $request = $request_controller->delete($id);
-        $root = $db_connection->redirect();
-        header("Location: " . $root ."/src/views/requests/index.php?id=". $id);
-
-    }
-    
     $id = isset($_GET['id']) ? $_GET['id'] : 'error getting id';
-    $request = $request_controller->show($id);
+    $game = $game_controller->show($id);
 
 ?>
 
@@ -36,30 +19,31 @@
             <div id="header-container">
                 <div id="logo_container">
                 <a href="http://localhost/game-app-php">
-                        <h3>Request Center</h3>
+                        <h3>Game</h3>
                     </a>
                 </div>
-                <nav id="nav_menu">
-                    <a class="btn" href="../../src/Views/user/show.php?id= <?php /* echo $user["id"] */ ?>">Mi Perfil</a>
-                    <a class="btn" href="http://localhost/game-app-php">Logout</a>
-                </nav>
             </div>    
-        </header>        <main>
+        </header>        
+        <main>
             <section>
-                <div class="container">
-                    <h1><?php echo $request["request_title"] ?></h1>
-                    <p>Tema : <?php echo $request["request_topic"] ?></p>
-                    <p><?php echo $request["request_description"]?>...</p>
-                    <p>Creado por : <?php echo $request["request_author"] ?> el <?php echo $request["created_at"] ?></p>
-                </div>
-                <div class="container-buttons">
-                    <a class="btn" href="update.php?id=<?php echo $request["request_id"] ?>">Editar Request</a>
-                    <form action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                        <input type="hidden" name="delete" value="<?php echo $request["request_id"] ?>">
-                        <input class="btn" type="submit" name="delete" value="Eliminar">
-                    </form>
-                    <a class="btn" href="index.php">Volver</a>
-                </div>
+                <div class="img-container">
+                    <div class="button-section-top less-width">
+                        <a class="btn" href="http://localhost/game-app-php">Back</a>
+                        <a class="btn" href="http://localhost/game-app-php">New Game</a>
+                    </div>
+                    <div id="game-container">
+                        <div class="result-section-v">
+                            <h1  class="container-result">Game : <?php echo $game["game_id"] ?></h1>
+                            <div  class="container-result">
+                                <p>Your Move : <?php echo $game["game_player_move"] ?></p>
+                                <p>Bot's Move : <?php echo $game["game_bot_move"]?></p>
+                            </div>
+                            <div  class="container-result">
+                                <h1><?php echo $game["game_result"]?></h1>
+                                <p>Your Score : <?php echo $game["game_score"]?></p>
+                            </div>
+                        </div>
+                    </div>
             </section>
         </main>
         <?php require "../components/footer.php"; ?>
